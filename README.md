@@ -1,4 +1,4 @@
-# Programowanie aplikacji zaawansowanych webowych
+# Programowanie webowe - wersja z gałęzi
 
 Repozytorium z zadaniami z przedmiotu
 
