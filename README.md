@@ -7,3 +7,7 @@ Repozytorium z zadaniami z przedmiotu
 ## Technologie
 
 Yyy... Są jakieś
+
+## Struktura repozytorium
+
+W folderze notatki znajdują się notatki, a w zadania - zadania
