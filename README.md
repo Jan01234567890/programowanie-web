@@ -11,5 +11,3 @@ Yyy... Są jakieś
 ## Struktura repozytorium
 
 W folderze notatki znajdują się notatki, a w zadania - zadania
-
-test
