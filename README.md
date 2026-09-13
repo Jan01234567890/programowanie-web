@@ -24,5 +24,3 @@ git clone https://github.com/Jan01234567890/programowanie-web.git
 | Środowisko wykonawcze      | Node.js |
 | System kontroli wersji     | Git     |
 | Program do edytowania kodu | VS Code |
-
-dodatkowa linia
