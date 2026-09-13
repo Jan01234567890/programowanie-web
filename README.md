@@ -11,3 +11,8 @@ Yyy... Są jakieś
 ## Struktura repozytorium
 
 W folderze notatki znajdują się notatki, a w zadania - zadania
+
+## Uruchomienie
+
+Żeby sklonować repozytorium wywołaj w terminalu:
+git clone https://github.com/Jan01234567890/programowanie-web.git
