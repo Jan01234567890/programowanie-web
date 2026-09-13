@@ -16,3 +16,11 @@ W folderze notatki znajdują się notatki, a w zadania - zadania
 
 Żeby sklonować repozytorium wywołaj w terminalu:
 git clone https://github.com/Jan01234567890/programowanie-web.git
+
+## Narzędzia
+
+| Środowisko wykonawcze      | Node.js |
+| -------------------------- | ------- |
+| System kontroli wersji     | Git     |
+| ---                        | ---     |
+| Program do edytowania kodu | VS Code |
