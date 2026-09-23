@@ -61,7 +61,7 @@ h2 {
     font-size: 24px;
 }
 
-#lista_umiejetnosci {
+#lista-umiejetnosci {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -69,7 +69,7 @@ h2 {
     padding: 0;
 }
 
-#lista_umiejetnosci li {
+#lista-umiejetnosci li {
     background-color: #eef3fb;
     border: 1px solid #cfdcf1;
     border-radius: 14px;
