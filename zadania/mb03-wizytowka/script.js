@@ -58,3 +58,15 @@ formularz.addEventListener("submit", (e) => {
         tresc: tresc
     })
 })
+
+const przycisk = document.querySelector("#przelacznik-motywu");
+
+przycisk.addEventListener("click", () => {
+    const czyJestCiemny = document.body.classList.toggle("ciemny");
+
+    if(czyJestCiemny){
+        przycisk.textContent = "Jasny motyw";
+    } else{
+        przycisk.textContent = "Ciemny motyw";
+    }
+})
