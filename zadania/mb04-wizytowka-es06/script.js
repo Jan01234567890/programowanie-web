@@ -25,7 +25,7 @@ const komunikat = document.querySelector("#komunikat");
 function pokazKomunikat(tresc, rodzaj) {
   komunikat.textContent = tresc;
   komunikat.classList.remove("blad", "sukses");
-  komunikat.classList.add("rodzaj");
+  komunikat.classList.add(rodzaj);
 }
 
 formularz.addEventListener("submit", (e) => {
