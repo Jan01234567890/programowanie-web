@@ -7,7 +7,7 @@ const umiejetnosci = [
   "Praca w zespole",
 ];
 
-function pokazUmiejetnosci(lista) {
+const pokazUmiejetnosci = (lista) => {
   const kontener = document.querySelector("#lista-umiejetnosci");
 
   for (const nazwa of lista) {
@@ -15,18 +15,18 @@ function pokazUmiejetnosci(lista) {
     element.textContent = nazwa;
     kontener.appendChild(element);
   }
-}
+};
 
 pokazUmiejetnosci(umiejetnosci);
 
 const formularz = document.querySelector("#formularz-kontaktowy");
 const komunikat = document.querySelector("#komunikat");
 
-function pokazKomunikat(tresc, rodzaj) {
+const pokazKomunikat = (tresc, rodzaj) => {
   komunikat.textContent = tresc;
   komunikat.classList.remove("blad", "sukses");
   komunikat.classList.add(rodzaj);
-}
+};
 
 formularz.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -50,11 +50,7 @@ formularz.addEventListener("submit", (e) => {
   }
 
   pokazKomunikat(
-    "Dziękuję, " +
-      imie +
-      ". Wiadomość na temat " +
-      temat +
-      " została przyjęta.",
+    `Dziękuję, ${imie}. Wiadomość na temat ${temat} została przyjęta`,
     "sukces"
   );
 
