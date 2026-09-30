@@ -92,7 +92,6 @@ przelacznikMotywu.addEventListener("click", () => {
 const przyciskiFiltrowania = document.querySelectorAll(
   "#przyciski-filtrowania button"
 );
-console.log(przyciskiFiltrowania);
 [...przyciskiFiltrowania].map((x, i) =>
   x.addEventListener("click", () =>
     pokazUmiejetnosci(
