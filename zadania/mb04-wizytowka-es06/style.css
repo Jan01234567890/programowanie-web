@@ -82,25 +82,27 @@ footer {
     font-size: 14px;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     gap: 14px;
     max-width: 420px;
 }
 
-.pole{
+.pole {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-label{
+label {
     font-weight: bold;
     font-size: 14px;
 }
 
-input, select, textarea{
+input,
+select,
+textarea {
     font-family: inherit;
     font-size: 15px;
     padding: 8px 10px;
@@ -110,12 +112,14 @@ input, select, textarea{
     color: #222222;
 }
 
-input:focus, select:focus, textarea:focus{
+input:focus,
+select:focus,
+textarea:focus {
     outline: none;
     border-color: #0b5ed7;
 }
 
-button{
+button {
     font-family: inherit;
     font-size: 15px;
     padding: 8px 18px;
@@ -127,55 +131,58 @@ button{
     align-items: flex-start;
 }
 
-button:hover{
+button:hover {
     background-color: #0a4fb4;
 }
 
-#komunikat{
+#komunikat {
     margin-top: 14px;
 }
 
-#komunikat.blad{
+#komunikat.blad {
     color: #b01a2a;
     font-weight: bold;
 }
 
-#komunikat.sukces{
+#komunikat.sukces {
     color: #1b7f3b;
     font-weight: bold;
 }
 
-#przelacznik-motywu{
+#przelacznik-motywu {
     margin-left: auto;
 }
 
-body.ciemny{
+body.ciemny {
     background-color: #1c1f24;
     color: #e8e8e8;
 }
 
-body.ciemny .podtytul, body.ciemny .footer{
+body.ciemny .podtytul,
+body.ciemny .footer {
     color: #a0a0a0;
 }
 
-body.ciemny header{
+body.ciemny header {
     border-bottom-color: #3a3f47;
 }
 
-body.ciemny section{
+body.ciemny section {
     border-bottom-color: #2b2f36;
 }
 
-body.ciemny nav a{
+body.ciemny nav a {
     color: #7fb3ff;
 }
 
-body.ciemny #lista-umiejetnosci li{
+body.ciemny #lista-umiejetnosci li {
     background-color: #262b33;
     border-color: #3a4150;
 }
 
-body.ciemny input, body.ciemny select, body.ciemny textarea{
+body.ciemny input,
+body.ciemny select,
+body.ciemny textarea {
     background-color: #262b33;
     border-color: #3a4150;
     color: #e8e8e8;
