@@ -3,16 +3,33 @@ const umiejetnosci = [
   { nazwa: "CSS", poziom: 4, kategoria: "frontend" },
   { nazwa: "JavaScript", poziom: 5, kategoria: "frontend" },
   { nazwa: "SQL", poziom: 4, kategoria: "backend" },
-  { nazwa: "Git", poziom: 1, kategoria: "narzedzia" },
+  { nazwa: "Git", poziom: 1, kategoria: "narzędzia" },
   { nazwa: "Node.js", poziom: 2, kategoria: "backend" },
 ];
 
 const pokazUmiejetnosci = (lista) => {
+  const podsumowanie = document.querySelector("#podsumowanie");
   const kontener = document.querySelector("#lista-umiejetnosci");
 
+  podsumowanie.textContent = `Umiejętności: ${
+    lista.length
+  }, średni poziom: ${sredniPoziomZaokroglony(lista)}`;
   kontener.innerHTML = lista
     .map(({ nazwa, poziom }) => `<li>${nazwa} - poziom: ${poziom}</li>`)
     .join("");
+};
+
+const sredniPoziomZaokroglony = (lista) => {
+  return (
+    Math.round(
+      (lista.reduce((suma, { poziom }) => (suma += poziom), 0) / lista.length) *
+        10
+    ) / 10
+  );
+};
+
+const filtruj = (lista, kategoriaDoFiltrowania) => {
+  return lista.filter(({ kategoria }) => kategoria == kategoriaDoFiltrowania);
 };
 
 pokazUmiejetnosci(umiejetnosci);
@@ -60,14 +77,26 @@ formularz.addEventListener("submit", (e) => {
   });
 });
 
-const przycisk = document.querySelector("#przelacznik-motywu");
+const przelacznikMotywu = document.querySelector("#przelacznik-motywu");
 
-przycisk.addEventListener("click", () => {
+przelacznikMotywu.addEventListener("click", () => {
   const czyJestCiemny = document.body.classList.toggle("ciemny");
 
   if (czyJestCiemny) {
-    przycisk.textContent = "Jasny motyw";
+    przelacznikMotywu.textContent = "Jasny motyw";
   } else {
-    przycisk.textContent = "Ciemny motyw";
+    przelacznikMotywu.textContent = "Ciemny motyw";
   }
 });
+
+const przyciskiFiltrowania = document.querySelectorAll(
+  "#przyciski-filtrowania button"
+);
+console.log(przyciskiFiltrowania);
+[...przyciskiFiltrowania].map((x, i) =>
+  x.addEventListener("click", () =>
+    pokazUmiejetnosci(
+      i ? filtruj(umiejetnosci, x.textContent.toLowerCase()) : umiejetnosci
+    )
+  )
+);
