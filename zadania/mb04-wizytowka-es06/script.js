@@ -83,6 +83,13 @@ const przyciskiFiltrowania = document.querySelectorAll(
 
 const inspiracjeHtml = document.querySelector("#inspiracje");
 
+/**
+ * Pobiera listę użytkowników z publicznego API
+ *
+ * @param {string} adres - pełny adres zasobu, z którego będą pobierane dane
+ * @returns {Promise<Array<object>>} tablica użytkowników
+ * @throws {Error} gdy serwer odpowiada statusem innym niż 2XX
+ */
 const pobierzUzytkownikow = async (adres) => {
   const odpowiedz = await fetch(adres);
 
