@@ -1,13 +1,13 @@
-export const pokazUmiejetnosci = (lista) => {
-  const podsumowanie = document.querySelector("#podsumowanie");
-  const kontener = document.querySelector("#lista-umiejetnosci");
-
-  podsumowanie.textContent = `Umiejętności: ${
-    lista.length
-  }, średni poziom: ${sredniPoziomZaokroglony(lista)}`;
-  kontener.innerHTML = lista
+export const budujUmiejetnosci = (lista) => {
+  return lista
     .map(({ nazwa, poziom }) => `<li>${nazwa} - poziom: ${poziom}</li>`)
     .join("");
+};
+
+export const budujPodsumowanie = (lista) => {
+  return `Umiejętności: ${
+    lista.length
+  }, średni poziom: ${sredniPoziomZaokroglony(lista)}`;
 };
 
 const sredniPoziomZaokroglony = (lista) => {

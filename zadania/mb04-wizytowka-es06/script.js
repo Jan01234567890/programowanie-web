@@ -1,7 +1,15 @@
 import { umiejetnosci } from "./dane.js";
-import { pokazUmiejetnosci, filtruj } from "./umiejetnosci.js";
+import {
+  budujUmiejetnosci,
+  filtruj,
+  budujPodsumowanie,
+} from "./umiejetnosci.js";
 
-pokazUmiejetnosci(umiejetnosci);
+const podsumowanie = document.querySelector("#podsumowanie");
+const listaUmiejetnosci = document.querySelector("#lista-umiejetnosci");
+
+listaUmiejetnosci.innerHTML = budujUmiejetnosci(umiejetnosci);
+podsumowanie.textContent = budujPodsumowanie(umiejetnosci);
 
 const formularz = document.querySelector("#formularz-kontaktowy");
 const komunikat = document.querySelector("#komunikat");
@@ -62,9 +70,12 @@ const przyciskiFiltrowania = document.querySelectorAll(
   "#przyciski-filtrowania button"
 );
 [...przyciskiFiltrowania].map((x, i) =>
-  x.addEventListener("click", () =>
-    pokazUmiejetnosci(
+  x.addEventListener("click", () => {
+    listaUmiejetnosci.innerHTML = budujUmiejetnosci(
       i ? filtruj(umiejetnosci, x.textContent.toLowerCase()) : umiejetnosci
-    )
-  )
+    );
+    podsumowanie.textContent = budujPodsumowanie(
+      i ? filtruj(umiejetnosci, x.textContent.toLowerCase()) : umiejetnosci
+    );
+  })
 );
