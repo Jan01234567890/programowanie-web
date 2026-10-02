@@ -17,7 +17,7 @@ const komunikat = document.querySelector("#komunikat");
 
 const pokazKomunikat = (tresc, rodzaj) => {
   komunikat.textContent = tresc;
-  komunikat.classList.remove("blad", "sukses");
+  komunikat.classList.remove("blad", "sukces");
   komunikat.classList.add(rodzaj);
 };
 
