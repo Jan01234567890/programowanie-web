@@ -6,3 +6,5 @@ export const umiejetnosci = [
   { nazwa: "Git", poziom: 1, kategoria: "narzędzia" },
   { nazwa: "Node.js", poziom: 2, kategoria: "backend" },
 ];
+
+export const adresApi = "https://jsonplaceholder.typicode.com/users";
