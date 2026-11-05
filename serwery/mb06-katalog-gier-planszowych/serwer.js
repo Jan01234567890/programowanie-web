@@ -3,6 +3,7 @@ import { gry } from "./dane.js";
 
 const app = express();
 
+/** GET / - strona główna, lista wszystkich potrzebnych linków */
 app.get("/", (req, res) => {
     res.send(`
         <h1>Katalog gier planszowych</h1>
@@ -14,10 +15,12 @@ app.get("/", (req, res) => {
         `)
 })
 
+/** GET /gry - pełna lista gier */
 app.get("/gry", (req, res) => {
     res.json(gry);
 });
 
+/** GET /gry:id - jedna gra o danym id; 404 gdy brak gry o takim id */
 app.get("/gry/:id", (req, res) => {
     const gra = gry.find(g => g.id === Number(req.params.id));
     if(!gra){
@@ -27,6 +30,7 @@ app.get("/gry/:id", (req, res) => {
     res.json(gra);
 });
 
+/** GET /szukaj?wydawca=&max=gracze - filtrowanie katalogu; brak parametrów = cała lista */
 app.get("/szukaj", (req, res) => {
     const {wydawca, max, gracze} = req.query;
     let gryWyszukane = gry;
@@ -44,6 +48,7 @@ app.get("/szukaj", (req, res) => {
     res.json(gryWyszukane);
 })
 
+/**GET /statystyki - podsumowanie katalogu */
 app.get("/statystyki", (req, res) => {
     res.json({
         liczbaGier: gry.length,
