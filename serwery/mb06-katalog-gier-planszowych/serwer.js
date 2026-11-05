@@ -15,7 +15,16 @@ app.get("/", (req, res) => {
 })
 
 app.get("/gry", (req, res) => {
-    res.send(gry);
+    res.json(gry);
+});
+
+app.get("/gry/:id", (req, res) => {
+    const gra = gry.find(g => g.id === Number(req.params.id));
+    if(!gra){
+        res.status(404).json({blad: "Nie ma takiej gry"});
+        return;
+    }
+    res.json(gra);
 });
 
 app.listen(3000, () => {
