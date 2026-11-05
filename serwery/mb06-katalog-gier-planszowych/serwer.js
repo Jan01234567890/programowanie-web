@@ -27,6 +27,23 @@ app.get("/gry/:id", (req, res) => {
     res.json(gra);
 });
 
+app.get("/szukaj", (req, res) => {
+    const {wydawca, max, gracze} = req.query;
+    let gryWyszukane = gry;
+
+    if(wydawca){
+        gryWyszukane = gryWyszukane.filter(g => g.wydawca.toLowerCase() === wydawca.toLowerCase());
+    }
+    if(max){
+        gryWyszukane = gryWyszukane.filter(g => g.cena <= Number(max));
+    }
+    if(gracze){
+        gryWyszukane = gryWyszukane.filter(g => g.gracze === Number(gracze))
+    }
+
+    res.json(gryWyszukane);
+})
+
 app.listen(3000, () => {
     console.log("Serwer działa: http://localhost:3000");
 });
