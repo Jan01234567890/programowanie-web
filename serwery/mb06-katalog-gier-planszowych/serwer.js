@@ -44,6 +44,14 @@ app.get("/szukaj", (req, res) => {
     res.json(gryWyszukane);
 })
 
+app.get("/statystyki", (req, res) => {
+    res.json({
+        liczbaGier: gry.length,
+        sredniaCena: Math.round(gry.reduce((suma, g) => suma += g.cena, 0) / gry.length * 100) / 100,
+        najdrozsza: gry.reduce((gMax, g) => g.cena > gMax.cena || !gMax ? gMax = g : gMax = gMax, 0).nazwa
+    })
+})
+
 app.listen(3000, () => {
     console.log("Serwer działa: http://localhost:3000");
 });
