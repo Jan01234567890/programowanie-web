@@ -16,6 +16,6 @@ export const wczytaj = async () => {
     }
 }
 
-export const zapis = async (zadania) => {
+export const zapisz = async (zadania) => {
     await fs.writeFile(PLIK, JSON.stringify(zadania, null, 2), "utf-8");
 }
