@@ -26,11 +26,34 @@ const dodajZadanie = async (zadanie) => {
     console.log(`Dodano zadanie nr ${noweZadania.length}: ${zadanie}`);
 }
 
+const ustawNaZrobione = async (nr) => {
+    const zadania = await wczytaj();
+
+    try{
+        nr = Number(nr);
+    }
+    catch{
+        console.error("Błąd: nie podano poprawnego numeru zadania");
+        return;
+    }
+    if(!nr || nr <= 0 || nr >= zadania.length + 1){
+        console.error("Błąd: nie podano poprawnego numeru zadania");
+        return;
+    }
+
+    const noweZadania = zadania.map((zadanie, i) => i === nr - 1 ? {...zadanie, czyZrobione: true} : zadanie );
+    await zapisz(noweZadania);
+    console.log(`Zrobiono zadanie nr ${nr}`);
+}
+
 switch(komenda){
     case "lista":
         pokazListe();
         break;
     case "dodaj":
         dodajZadanie(argument);
+        break;
+    case "zrobione":
+        ustawNaZrobione(argument);
         break;
 }
