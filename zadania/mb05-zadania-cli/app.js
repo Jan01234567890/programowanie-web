@@ -41,12 +41,12 @@ const ustawNaZrobione = async (nr) => {
 
 switch(komenda){
     case "lista":
-        pokazListe();
+        await pokazListe();
         break;
     case "dodaj":
-        dodajZadanie(argument);
+        await dodajZadanie(argument);
         break;
     case "zrobione":
-        ustawNaZrobione(argument);
+        await ustawNaZrobione(argument);
         break;
 }
