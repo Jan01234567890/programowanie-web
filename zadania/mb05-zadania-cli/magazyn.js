@@ -5,7 +5,7 @@ const PLIK = path.join(import.meta.dirname, "dane.json");
 
 export const wczytaj = async () => {
     try{
-        const tekst = await fs.writeFile(PLIK, "utf-8");
+        const tekst = await fs.readFile(PLIK, "utf-8");
         return JSON.parse(tekst);
     }
     catch (blad){
