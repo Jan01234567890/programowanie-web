@@ -29,14 +29,7 @@ const dodajZadanie = async (zadanie) => {
 const ustawNaZrobione = async (nr) => {
     const zadania = await wczytaj();
 
-    try{
-        nr = Number(nr);
-    }
-    catch{
-        console.error("Błąd: nie podano poprawnego numeru zadania");
-        return;
-    }
-    if(!nr || nr <= 0 || nr >= zadania.length + 1){
+    if(!Number.isInteger(nr) || nr <= 0 || nr >= zadania.length + 1){
         console.error("Błąd: nie podano poprawnego numeru zadania");
         return;
     }
