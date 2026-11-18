@@ -59,6 +59,20 @@ app.post("/echo", (req, res) => {
     res.json({ odebrano: req.body });
 })
 
+/** Nieznany adres - JSON dla nieznanej trasy, strona HTML dla braku strony */
+app.use((req, res) => {
+    const czyDane = ["/gry", "/szukaj", "/statystyki"].some((p) => 
+        req.url.startsWith(p)
+    );
+
+    if(czyDane){
+        res.status(404).json({blad: "Nie ma takiej trasy"});
+        return;
+    }
+
+    res.status(404).send("<h1>404 - brak takiej strony</h1>")
+})
+
 app.listen(3000, () => {
     console.log("Serwer działa: http://localhost:3000");
 });
