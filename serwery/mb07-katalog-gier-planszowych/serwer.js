@@ -1,6 +1,7 @@
 import express from "express";
 import { gry } from "./dane.js";
 import path from "node:path";
+import routerGier from "./trasy/gry.js";
 
 const app = express();
 
@@ -22,20 +23,7 @@ app.use(express.urlencoded({extended: true}));
 /** Pliki statyczne - strona główna, lista wszystkich potrzebnych linków */
 app.use(express.static(path.join(import.meta.dirname, "public")));
 
-/** GET /gry - pełna lista gier */
-app.get("/gry", (req, res) => {
-    res.json(gry);
-});
-
-/** GET /gry:id - jedna gra o danym id; 404 gdy brak gry o takim id */
-app.get("/gry/:id", (req, res) => {
-    const gra = gry.find(g => g.id === Number(req.params.id));
-    if(!gra){
-        res.status(404).json({blad: "Nie ma takiej gry"});
-        return;
-    }
-    res.json(gra);
-});
+app.use("/gry", routerGier);
 
 /** GET /szukaj?wydawca=&max=gracze - filtrowanie katalogu; brak parametrów = cała lista */
 app.get("/szukaj", (req, res) => {
