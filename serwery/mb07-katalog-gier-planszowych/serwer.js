@@ -16,6 +16,9 @@ const logger = (req, res, next) => {
 
 app.use(logger);
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 /** Pliki statyczne - strona główna, lista wszystkich potrzebnych linków */
 app.use(express.static(path.join(import.meta.dirname, "public")));
 
@@ -52,13 +55,20 @@ app.get("/szukaj", (req, res) => {
     res.json(gryWyszukane);
 })
 
-/**GET /statystyki - podsumowanie katalogu */
+/** GET /statystyki - podsumowanie katalogu */
 app.get("/statystyki", (req, res) => {
     res.json({
         liczbaGier: gry.length,
         sredniaCena: Math.round(gry.reduce((suma, g) => suma += g.cena, 0) / gry.length * 100) / 100,
-        najdrozsza: gry.reduce((gMax, g) => g.cena > gMax.cena || !gMax ? gMax = g : gMax = gMax, 0).nazwa
+        najdrozsza: gry.reduce((gMax, g) => g.cena > gMax.cena || !gMax ? gMax = g : gMax = gMax, 0).nazwa,
+        wygenerowano: req.czasZadania
     })
+})
+
+/** POST /echo - odsyła treść żądania; służy do sprawdzania, jak serwer czyta dane */
+app.post("/echo", (req, res) => {
+    console.log(req.body);
+    res.json({ odebrano: req.body });
 })
 
 app.listen(3000, () => {

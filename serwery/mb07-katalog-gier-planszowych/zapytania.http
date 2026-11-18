@@ -1,0 +1,16 @@
+@adres = http://localhost:3000
+
+### Echo - JSON
+POST {{adres}}/echo
+Content-type: application/json
+
+{
+    "nazwa": "Dixit",
+    "cena": 190 
+}
+
+### Echo - jak z formularza
+POST {{adres}}/echo
+Content-type: application/x-www-form-urlencoded
+
+nazwa=Dixit&cena=190
