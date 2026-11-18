@@ -1,5 +1,6 @@
 import express from "express";
 import { gry } from "./dane.js";
+import path from "node:path";
 
 const app = express();
 
@@ -15,17 +16,8 @@ const logger = (req, res, next) => {
 
 app.use(logger);
 
-/** GET / - strona główna, lista wszystkich potrzebnych linków */
-app.get("/", (req, res) => {
-    res.send(`
-        <h1>Katalog gier planszowych</h1>
-        <ul>
-            <li><a href="/gry">/gry</a> - wszystkie gry</li>
-            <li><a href="/gry/1">/gry/:id</a> - jedna gra</li>
-            <li><a href="/szukaj?max=150">/szukaj</a> - wyszukiwanie</li>
-            <li><a href="/statystyki">/statystyki</a> - podsumowanie</li>
-        `)
-})
+/** Pliki statyczne - strona główna, lista wszystkich potrzebnych linków */
+app.use(express.static(path.join(import.meta.dirname, "public")));
 
 /** GET /gry - pełna lista gier */
 app.get("/gry", (req, res) => {
